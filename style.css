@@ -22,6 +22,14 @@ body {
 
 .poke {
   font-weight: bold;
+  position: relative;
+  cursor: pointer;
+}
+
+.pokePopUp {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
 }
 
 .chaser {

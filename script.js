@@ -206,5 +206,44 @@ function activateCollage() {
   }
 }
 
+function activatePokemonHover() {
+  const pokemons = document.querySelectorAll(".poke");
+
+  for (let i = 0; i < pokemons.length; i++) {
+    pokemons[i].addEventListener("mouseover", (e) => {
+      getPokemonSprite(e.target.innerText, e.target);
+    });
+
+    pokemons[i].addEventListener("mouseout", (e) => {
+      removePopUp(e.target);
+    });
+  }
+
+  async function getPokemonSprite(name, element) {
+    let formattedName = name.trim().toLowerCase().replaceAll("'", "");
+
+    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${formattedName}`);
+    const response = await data.json();
+
+    if (response.sprites) {
+      const pokemonSprite = response.sprites.front_default;
+      displayPopUp(pokemonSprite, element);
+    }
+  }
+
+  function displayPopUp(sprite, element) {
+    const spriteImg = document.createElement("img");
+    spriteImg.className = "pokePopUp";
+    spriteImg.src = `${sprite}`;
+    element.appendChild(spriteImg);
+  }
+
+  function removePopUp(element) {
+    const popUp = document.querySelector(".pokePopUp");
+    element.removeChild(popUp);
+  }
+}
+
 activateCarousel();
 activateCollage();
+activatePokemonHover();
