@@ -65,6 +65,20 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.img-one {
+  background-image: url(./images/parallax/1.jpg);
+}
+
+.img-two {
+  background-image: url(./images/parallax/2.jpg);
+}
+
+.img-three {
+  background-image: url(./images/parallax/3.jpg);
 }
 
 .active {
