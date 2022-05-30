@@ -10,28 +10,95 @@ function randomLetter() {
 function activateCarousel() {
   const container = document.querySelector(".carouselContainer");
   const slides = document.querySelectorAll(".slide");
-  const slideWidth = slides[0].clientWidth;
-  let count = 1;
-  container.style.transition = "1s ease-in-out";
+  const dots = document.querySelectorAll(".dot");
 
-  setTimeout(() => {
-    container.style.transform = `translateX(${-slideWidth * count}px)`;
-    count++;
-  }, 3000);
-  setTimeout(() => {
-    container.style.transform = `translateX(${-slideWidth * count}px)`;
-    count--;
-  }, 6000);
-  setTimeout(() => {
-    container.style.transform = `translateX(${-slideWidth * count}px)`;
-    count--;
-  }, 9000);
-  setTimeout(() => {
-    container.style.transform = `translateX(${-slideWidth * count}px)`;
-  }, 12000);
-  setTimeout(() => {
-    activateCarousel();
-  }, 15000);
+  const previous = document.querySelector(".previous");
+  const next = document.querySelector(".next");
+
+  let current = 0;
+  let lastSlide = slides.length - 1;
+  let firstSlide = 0;
+  let timeOut;
+
+  next.addEventListener("click", () => {
+    displayNextSlide();
+    clearTimeout(timeOut);
+    setAutomaticLoop();
+  });
+
+  previous.addEventListener("click", () => {
+    displayPreviousSlide();
+    clearTimeout(timeOut);
+    setAutomaticLoop();
+  });
+
+  container.addEventListener("click", (e) => {
+    if (e.target.id === "i-one") {
+      updateDisplayOne(0);
+      clearTimeout(timeOut);
+      setAutomaticLoop();
+    }
+    if (e.target.id === "i-two") {
+      updateDisplayOne(1);
+      clearTimeout(timeOut);
+      setAutomaticLoop();
+    }
+    if (e.target.id === "i-three") {
+      updateDisplayOne(2);
+      clearTimeout(timeOut);
+      setAutomaticLoop();
+    }
+  });
+
+  setAutomaticLoop();
+
+  function updateDisplayOne(selected) {
+    slides[current].classList.remove("active");
+    dots[current].classList.remove("i-active");
+    current = selected;
+    slides[current].classList.add("active");
+    dots[current].classList.add("i-active");
+  }
+
+  function displayNextSlide() {
+    if (current === lastSlide) {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("i-active");
+      current = firstSlide;
+      slides[current].classList.add("active");
+      dots[current].classList.add("i-active");
+    } else {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("i-active");
+      current++;
+      slides[current].classList.add("active");
+      dots[current].classList.add("i-active");
+    }
+  }
+
+  function displayPreviousSlide() {
+    if (current === firstSlide) {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("i-active");
+      current = lastSlide;
+      slides[current].classList.add("active");
+      dots[current].classList.add("i-active");
+    } else {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("i-active");
+      current--;
+      slides[current].classList.add("active");
+      dots[current].classList.add("i-active");
+    }
+  }
+
+  function setAutomaticLoop() {
+    timeOut = setTimeout(() => {
+      console.log("hi");
+      displayNextSlide();
+      setAutomaticLoop();
+    }, 5000);
+  }
 }
 
 activateCarousel();

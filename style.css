@@ -2,6 +2,10 @@ body {
   padding-bottom: 50px;
 }
 
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
 .picture {
   padding: 10px;
 }
@@ -34,24 +38,73 @@ body {
   height: 350px;
 }
 
-.carousel {
-  overflow: hidden;
+.carouselContainer {
+  height: 400px;
+  padding: 0;
+  position: relative;
 }
 
-.carouselContainer {
-  background: royalblue;
-  height: 400px;
-  display: flex;
+.slide-ul {
   padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 .slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide-img {
   height: 100%;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
-  flex-shrink: 0;
+}
+
+.active {
+  opacity: 1;
+}
+
+.indicator,
+.dot {
+  position: absolute;
+  z-index: 2;
+  color: beige;
+  cursor: pointer;
+}
+
+.previous {
+  top: 50%;
+  left: 10px;
+}
+
+.next {
+  top: 50%;
+  right: 10px;
+}
+
+#i-one {
+  bottom: 10px;
+  right: 55%;
+}
+#i-two {
+  bottom: 10px;
+  right: 50%;
+}
+#i-three {
+  bottom: 10px;
+  right: 45%;
+}
+
+.i-active {
+  border: 1px solid white;
+  border-radius: 50%;
 }
 
 .title {

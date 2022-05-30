@@ -9,6 +9,10 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="lightMode">
@@ -27,9 +31,29 @@
           I want a working parallax carousel here! Controls are optional.
         </div>
         <div class="col-12 carouselContainer">
-          <img class="slide slide-one" src="./images/parallax/1.jpg"  alt="first-slide"></img>
-          <img class="slide slide-two" src="./images/parallax/2.jpg" alt="second-slide" ></img>
-          <img class="slide slide-three" src="./images/parallax/3.jpg" alt="third-slide"></img>
+          <span class="material-symbols-outlined indicator previous"> arrow_back_ios </span>
+          <span class="material-symbols-outlined indicator next"> arrow_forward_ios </span>
+
+          <span class="material-symbols-outlined dot i-active" id="i-one">
+            fiber_manual_record
+          </span>
+          <span class="material-symbols-outlined dot i-two" id="i-two"> fiber_manual_record </span>
+          <span class="material-symbols-outlined dot i-three" id="i-three">
+            fiber_manual_record
+          </span>
+
+          <ul class="slide-ul">
+            <li class="slide slide-one active">
+              <img class="slide-img img-one" src="./images/parallax/1.jpg" alt="slide-one" />
+            </li>
+            <li class="slide slide-two">
+              <img class="slide-img img-two" src="./images/parallax/2.jpg" alt="slide-two" />
+            </li>
+
+            <li class="slide slide-three">
+              <img class="slide-img img-three" src="./images/parallax/3.jpg" alt="slide-three" />
+            </li>
+          </ul>
         </div>
       </div>
       <div class="row collage">
