@@ -34,30 +34,24 @@ function activateCarousel() {
 
   container.addEventListener("click", (e) => {
     if (e.target.id === "i-one") {
-      updateDisplayOne(0);
-      clearTimeout(timeOut);
-      setAutomaticLoop();
+      handleBottomIndicators(0);
     }
     if (e.target.id === "i-two") {
-      updateDisplayOne(1);
-      clearTimeout(timeOut);
-      setAutomaticLoop();
+      handleBottomIndicators(1);
     }
     if (e.target.id === "i-three") {
-      updateDisplayOne(2);
-      clearTimeout(timeOut);
-      setAutomaticLoop();
+      handleBottomIndicators(2);
     }
   });
 
-  setAutomaticLoop();
-
-  function updateDisplayOne(selected) {
+  function handleBottomIndicators(selected) {
     slides[current].classList.remove("active");
     dots[current].classList.remove("i-active");
     current = selected;
     slides[current].classList.add("active");
     dots[current].classList.add("i-active");
+    clearTimeout(timeOut);
+    setAutomaticLoop();
   }
 
   function displayNextSlide() {
@@ -94,11 +88,11 @@ function activateCarousel() {
 
   function setAutomaticLoop() {
     timeOut = setTimeout(() => {
-      console.log("hi");
       displayNextSlide();
       setAutomaticLoop();
     }, 5000);
   }
+  setAutomaticLoop();
 }
 
 activateCarousel();
