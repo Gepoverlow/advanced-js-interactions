@@ -95,4 +95,95 @@ function activateCarousel() {
   setAutomaticLoop();
 }
 
+function activateCollage() {
+  const collageImages = document.querySelectorAll(".image");
+  const extinctSpecies = [
+    {
+      name: "Bramble Cay Melomys",
+      url: "Bramble_Cay_Melomys.jpg",
+      yearOfExtinction: "2015",
+    },
+    {
+      name: "Carolina Parakeet",
+      url: "Carolina_Parakeet.jpeg",
+      yearOfExtinction: "1918",
+    },
+    {
+      name: "Smooth Handfish",
+      url: "Smooth_Handfish.jpg",
+      yearOfExtinction: "1822",
+    },
+    {
+      name: "Yangtze River Dolphin",
+      url: "Yangtze_River_Dolphin.jpg",
+      yearOfExtinction: "2002",
+    },
+    {
+      name: "The Northern White Rhinoceros",
+      url: "The_Northern_White_Rhinoceros.jpeg",
+      yearOfExtinction: "2018",
+    },
+    {
+      name: "The Spix Macaw",
+      url: "The_Spix_Macaw.jpeg",
+      yearOfExtinction: "2021",
+    },
+    {
+      name: "The Thylacine",
+      url: "The_Thylacine.jpeg",
+      yearOfExtinction: "1999",
+    },
+    {
+      name: "The Passenger Pigeon",
+      url: "The_Passenger_Pigeon.jpeg",
+      yearOfExtinction: "1914",
+    },
+    {
+      name: "The Quagga",
+      url: "The_Quagga.jpg",
+      yearOfExtinction: "1900",
+    },
+    {
+      name: "The Pyrenean Ibex",
+      url: "The_Pyrenean_Ibex.png",
+      yearOfExtinction: "2009",
+    },
+    {
+      name: "The Golden Toad",
+      url: "The_Golden_Toad.jpeg",
+      yearOfExtinction: "1994",
+    },
+    {
+      name: "Zanzibar Leopard",
+      url: "Zanzibar_Leopard.jpg",
+      yearOfExtinction: "1995",
+    },
+    {
+      name: "Po'ouli",
+      url: "Po'ouli.jpg",
+      yearOfExtinction: "1970",
+    },
+    {
+      name: "Madeiran Large White",
+      url: "Madeiran_Large_White.jpg",
+      yearOfExtinction: "1898",
+    },
+    {
+      name: "Tecopa Pupfish",
+      url: "Tecopa_Pupfish.jpg",
+      yearOfExtinction: "1973",
+    },
+    {
+      name: "Falkland Islands Wolf",
+      url: "Falkland_Islands_Wolf.jpg",
+      yearOfExtinction: "1800",
+    },
+  ];
+
+  for (let i = 0; i < collageImages.length; i++) {
+    collageImages[i].style.backgroundImage = `url("./images/grid/${extinctSpecies[i].url}")`;
+  }
+}
+
 activateCarousel();
+activateCollage();

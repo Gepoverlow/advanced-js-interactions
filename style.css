@@ -11,8 +11,12 @@ body {
 }
 
 .image {
-  height: 250px;
-  background: midnightblue;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .poke {
