@@ -119,37 +119,37 @@ function activateCollage() {
       yearOfExtinction: "2002",
     },
     {
-      name: "The Northern White Rhinoceros",
+      name: "Northern White Rhinoceros",
       url: "The_Northern_White_Rhinoceros.jpeg",
       yearOfExtinction: "2018",
     },
     {
-      name: "The Spix Macaw",
+      name: "Spix Macaw",
       url: "The_Spix_Macaw.jpeg",
       yearOfExtinction: "2021",
     },
     {
-      name: "The Thylacine",
+      name: "Thylacine",
       url: "The_Thylacine.jpeg",
       yearOfExtinction: "1999",
     },
     {
-      name: "The Passenger Pigeon",
+      name: "Passenger Pigeon",
       url: "The_Passenger_Pigeon.jpeg",
       yearOfExtinction: "1914",
     },
     {
-      name: "The Quagga",
+      name: "Quagga",
       url: "The_Quagga.jpg",
       yearOfExtinction: "1900",
     },
     {
-      name: "The Pyrenean Ibex",
+      name: "Pyrenean Ibex",
       url: "The_Pyrenean_Ibex.png",
       yearOfExtinction: "2009",
     },
     {
-      name: "The Golden Toad",
+      name: "Golden Toad",
       url: "The_Golden_Toad.jpeg",
       yearOfExtinction: "1994",
     },
@@ -182,6 +182,27 @@ function activateCollage() {
 
   for (let i = 0; i < collageImages.length; i++) {
     collageImages[i].style.backgroundImage = `url("./images/grid/${extinctSpecies[i].url}")`;
+    collageImages[i].addEventListener("click", (e) => {
+      handleInfo(extinctSpecies[i], e.target);
+    });
+  }
+
+  function handleInfo(species, target) {
+    collageImages.forEach((collage) => {
+      collage.style.transform = "scale(1)";
+      collage.style.transition = "transform 0.25s ease";
+      collage.style.zIndex = "0";
+      collage.innerHTML = "";
+    });
+
+    target.style.transform = "scale(1.5)";
+    target.style.transition = "transform 0.25s ease";
+    target.style.zIndex = "2";
+
+    const infoText = document.createElement("span");
+    infoText.className = "infoText";
+    infoText.textContent = `The ${species.name} became extinct in ${species.yearOfExtinction}`;
+    target.appendChild(infoText);
   }
 }
 

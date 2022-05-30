@@ -17,6 +17,7 @@ body {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .poke {
@@ -162,4 +163,13 @@ body {
 
 .mode:hover {
   cursor: pointer;
+}
+
+.infoText {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  padding: 2px;
+  background: rgba(245, 245, 245, 0.5);
+  font-size: 7px;
 }
