@@ -249,6 +249,8 @@ function activateRedCircle() {
   const redCircle = document.querySelector(".chaser");
   let x;
   let y;
+  let lastMouseMove = 0;
+  let delay = 20;
   gameContainer.addEventListener("mousemove", (e) => {
     if (e.target.className !== "chaser") {
       x = e.offsetX - 25;
@@ -259,6 +261,9 @@ function activateRedCircle() {
   });
 
   function chaseMouse(x, y) {
+    if (lastMouseMove >= Date.now() - delay) return;
+    lastMouseMove = Date.now();
+
     redCircle.style.left = `${x}px`;
     redCircle.style.top = `${y}px`;
   }
