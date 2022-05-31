@@ -7,6 +7,15 @@ function randomLetter() {
   return alphabet[Math.floor(Math.random() * alphabet.length)];
 }
 
+const mode = document.querySelector(".mode");
+mode.addEventListener("click", () => {
+  if (document.body.className === "lightMode") {
+    document.body.classList.replace("lightMode", "darkMode");
+  } else if (document.body.className === "darkMode") {
+    document.body.classList.replace("darkMode", "lightMode");
+  }
+});
+
 function activateCarousel() {
   const container = document.querySelector(".carouselContainer");
   const slides = document.querySelectorAll(".slide");
