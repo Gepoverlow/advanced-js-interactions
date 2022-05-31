@@ -244,6 +244,27 @@ function activatePokemonHover() {
   }
 }
 
+function activateRedCircle() {
+  const gameContainer = document.getElementById("red-game-container");
+  const redCircle = document.querySelector(".chaser");
+  let x;
+  let y;
+  gameContainer.addEventListener("mousemove", (e) => {
+    if (e.target.className !== "chaser") {
+      x = e.offsetX - 25;
+      y = e.offsetY - 25;
+
+      chaseMouse(x, y);
+    }
+  });
+
+  function chaseMouse(x, y) {
+    redCircle.style.left = `${x}px`;
+    redCircle.style.top = `${y}px`;
+  }
+}
+
 activateCarousel();
 activateCollage();
 activatePokemonHover();
+activateRedCircle();

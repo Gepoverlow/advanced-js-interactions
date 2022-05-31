@@ -37,6 +37,9 @@ body {
   height: 50px;
   background: red;
   border-radius: 50%;
+  position: absolute;
+  transition: all 300ms ease;
+  pointer-events: none;
 }
 
 .runner {
@@ -49,6 +52,7 @@ body {
 .box {
   border: 1px solid grey;
   height: 350px;
+  position: relative;
 }
 
 .carouselContainer {
