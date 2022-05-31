@@ -269,7 +269,37 @@ function activateRedCircle() {
   }
 }
 
+function activateGreenCircle() {
+  const gameContainer = document.getElementById("green-game-container");
+  const greenCircle = document.querySelector(".runner");
+  let lastMouseMove = 0;
+  let delay = 300;
+  gameContainer.addEventListener("mousemove", (e) => {
+    if (e.target.className === "runner") {
+      escapeMouse();
+    }
+  });
+
+  function escapeMouse() {
+    if (lastMouseMove >= Date.now() - delay) return;
+    lastMouseMove = Date.now();
+    randomBounce();
+  }
+
+  function randomBounce() {
+    const containerWidth = gameContainer.clientWidth - 50;
+    const containerHeight = gameContainer.clientHeight - 50;
+
+    let randomWidth = Math.floor(Math.random() * containerWidth) + 1;
+    let randomHeight = Math.floor(Math.random() * containerHeight) + 1;
+
+    greenCircle.style.top = `${randomHeight}px`;
+    greenCircle.style.left = `${randomWidth}px`;
+  }
+}
+
 activateCarousel();
 activateCollage();
 activatePokemonHover();
 activateRedCircle();
+activateGreenCircle();
