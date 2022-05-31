@@ -320,7 +320,7 @@ function activateCraziness() {
 
     setTimeout(() => {
       randomBouncing(letter);
-    }, 1000);
+    }, 5000);
   }
 }
 

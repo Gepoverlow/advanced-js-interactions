@@ -201,8 +201,8 @@ body {
 .crazied {
   position: absolute;
   animation: rotateCraziness 5s infinite linear, colorCraziness 5s infinite;
-  transition: top 1000ms, left 1000ms;
-  transition-timing-function: ease-out;
+  transition: top 5000ms, left 5000ms;
+  transition-timing-function: ease-in-out;
 }
 
 #letter-box {
