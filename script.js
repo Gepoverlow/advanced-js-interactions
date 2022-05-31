@@ -297,9 +297,36 @@ function activateGreenCircle() {
     greenCircle.style.left = `${randomWidth}px`;
   }
 }
+function activateCraziness() {
+  const letterContainer = document.getElementById("letter-box");
+  const letters = document.querySelectorAll(".letter");
+
+  for (let i = 0; i < letters.length; i++) {
+    letters[i].addEventListener("mouseover", () => {
+      letters[i].classList.add("crazied");
+      randomBouncing(letters[i]);
+    });
+  }
+
+  function randomBouncing(letter) {
+    const containerWidth = letterContainer.clientWidth - 20;
+    const containerHeight = letterContainer.clientHeight - 20;
+
+    let randomWidth = Math.floor(Math.random() * containerWidth) + 1;
+    let randomHeight = Math.floor(Math.random() * containerHeight) + 1;
+
+    letter.style.top = `${randomHeight}px`;
+    letter.style.left = `${randomWidth}px`;
+
+    setTimeout(() => {
+      randomBouncing(letter);
+    }, 1000);
+  }
+}
 
 activateCarousel();
 activateCollage();
 activatePokemonHover();
 activateRedCircle();
 activateGreenCircle();
+activateCraziness();

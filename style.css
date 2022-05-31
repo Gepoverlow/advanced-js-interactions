@@ -192,3 +192,70 @@ body {
   background: rgba(245, 245, 245, 0.5);
   font-size: 7px;
 }
+
+.letter {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.crazied {
+  position: absolute;
+  animation: rotateCraziness 5s infinite linear, colorCraziness 5s infinite;
+  transition: top 1000ms, left 1000ms;
+  transition-timing-function: ease-out;
+}
+
+#letter-box {
+  position: relative;
+}
+
+@keyframes rotateCraziness {
+  0% {
+    transform: rotate(deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes colorCraziness {
+  8% {
+    color: red;
+  }
+  16% {
+    color: orange;
+  }
+  24% {
+    color: yellow;
+  }
+  32% {
+    color: green;
+  }
+  40% {
+    color: blue;
+  }
+  48% {
+    color: indigo;
+  }
+  56% {
+    color: violet;
+  }
+  64% {
+    color: indigo;
+  }
+  72% {
+    color: blue;
+  }
+  80% {
+    color: green;
+  }
+  88% {
+    color: yellow;
+  }
+  96% {
+    color: orange;
+  }
+  100% {
+    color: red;
+  }
+}
